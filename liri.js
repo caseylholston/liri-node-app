@@ -34,7 +34,7 @@ if (process.argv[2] === 'my-tweets') {
 else if (process.argv[2] === 'spotify-this-song') {
     console.log('You typed spotify this song');
 
-        spotify.search({ type: 'track', query: process.argv[3] }, function(err, data) {
+        spotify.search({ type: 'track', query: process.argv[3], limit: 20 }, function(err, data) {
             if ( err ) {
             console.log('Error occurred: ' + err);
             return;
