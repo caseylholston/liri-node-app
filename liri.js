@@ -6,10 +6,11 @@ var action = '';
 
  console.log(keys.twitterKeys);
  console.log(process.argv);
+ console.log(process.argv[2]);
+ console.log(process.argv[3]);
 
 
-
-if (process.argv[3] == 'my-tweets') {
+if (process.argv[2] === 'my-tweets') {
     console.log('You typed my tweets');
     // var client = new twitter({
     // consumer_key: keys.twitterKeys.consumer_key,
@@ -30,19 +31,19 @@ if (process.argv[3] == 'my-tweets') {
     //         }
     //     });
     }
-else if (process.argv[3] == 'spotify-this-song') {
-    console.log('You typed spotify this song')
+else if (process.argv[2] === 'spotify-this-song') {
+    console.log('You typed spotify this song');
 
-        // spotify.search({ type: 'track', query: process.argv[4] }, function(err, data) {
-        //     if ( err ) {
-        //     console.log('Error occurred: ' + err);
-        //     return;
-        //     }
-        //     console.log(data);
-        // });
+        spotify.search({ type: 'track', query: process.argv[3] }, function(err, data) {
+            if ( err ) {
+            console.log('Error occurred: ' + err);
+            return;
+            }
+            console.log(data);
+        });
     }
 
-else if (process.argv[3] == 'movie-this') {
+else if (process.argv[2] === 'movie-this') {
 
 
     
