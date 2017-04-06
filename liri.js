@@ -3,6 +3,7 @@ var twitter = require('twitter');
 var spotify = require('spotify');
 var request = require('request');
 var keys = require('./keys.js');
+var fs = require('fs');
 var action = '';
 
  console.log(keys.twitterKeys);
@@ -55,7 +56,7 @@ else if (process.argv[2] === 'spotify-this-song') {
 
 else if (process.argv[2] === 'movie-this') { 
     var movieName ='';
-    if (process.argv[3] === 'undefined') {
+    if (process.argv[3] = 'undefined') {
         movieName = 'Mr. Nobody';
     }
     else {
@@ -67,17 +68,28 @@ else if (process.argv[2] === 'movie-this') {
     request(queryUrl, function (error, response, body) {
         if( !error && response.statusCode ===200) {
 
-        console.log('Title: ' + JSON.parse(body).Title);
-        console.log('The movie was released in: ' + JSON.parse(body).Year);
-        console.log('The IMDB rating is: ' + JSON.parse(body).Ratings[0].Value);
-        console.log('The movie was produced in: ' + JSON.parse(body).Country);
-        console.log('The movie language is: ' + JSON.parse(body).Language);
-        console.log('The movie plot is: ' + JSON.parse(body).Plot);
-        console.log('Some actors in the movie are: ' + JSON.parse(body).Actors);
-        console.log('The movie language is: ' + JSON.parse(body).Language);
-        console.log('The Rotten Tomatoes score is: ' + JSON.parse(body).Ratings[1].Value);
-        }
+            console.log('Title: ' + JSON.parse(body).Title);
+            console.log('The movie was released in: ' + JSON.parse(body).Year);
+            console.log('The IMDB rating is: ' + JSON.parse(body).Ratings[0].Value);
+            console.log('The movie was produced in: ' + JSON.parse(body).Country);
+            console.log('The movie language is: ' + JSON.parse(body).Language);
+            console.log('The movie plot is: ' + JSON.parse(body).Plot);
+            console.log('Some actors in the movie are: ' + JSON.parse(body).Actors);
+            console.log('The movie language is: ' + JSON.parse(body).Language);
+            console.log('The Rotten Tomatoes score is: ' + JSON.parse(body).Ratings[1].Value);
+            }
+        else {
+            console.log(error);
+            }
     })
+}
+
+        else if (process.argv[2] === 'do-what-it-says'){
+              fs.readFile("random.txt", "utf8", function(err, data) {
+
+                data = data.split(",");
+                console.log(data[0]);
+                console.log(data[1]);
+
+              })
 };
-
-
