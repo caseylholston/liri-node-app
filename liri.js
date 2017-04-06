@@ -54,14 +54,23 @@ else if (process.argv[2] === 'spotify-this-song') {
         });
     }
 
-else if (process.argv[2] === 'movie-this') { 
-    var movieName ='';
-    if (process.argv[3] = 'undefined') {
-        movieName = 'Mr. Nobody';
+        else if (process.argv[2] === 'movie-this') {
+            movieThis(process.argv[3]);
+        }
+        else if (process.argv[2] === 'do-what-it-says'){
+             doWhatItSays();
+        }
+//-------------------FUNCTIONS------------------------------------
+
+function movieThis(movie) {
+    console.log(movie);
+    if (movie === undefined) {
+          movieName = 'Mr. Nobody';
     }
     else {
-        movieName = process.argv[3];
+        movieName = movie; 
     }
+    console.log(movieName);
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName.replace(/ /g, "+") + "&y=&plot=short&r=json";
     console.log('Query URL: '+ queryUrl);
 
@@ -84,12 +93,14 @@ else if (process.argv[2] === 'movie-this') {
     })
 }
 
-        else if (process.argv[2] === 'do-what-it-says'){
-              fs.readFile("random.txt", "utf8", function(err, data) {
+ function doWhatItSays (){
+        fs.readFile("random.txt", "utf8", function(err, data) {
 
-                data = data.split(",");
-                console.log(data[0]);
-                console.log(data[1]);
+        data = data.split(",");
+        console.log(data[0]);
+        console.log(data[1]);
 
-              })
+    })
 };
+
+ 
