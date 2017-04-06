@@ -1,3 +1,4 @@
+//console.log('export HEROKU_CONFIG=$(heroku config --json)');
 var twitter = require('twitter');
 var spotify = require('spotify');
 var request = require('request');
@@ -52,10 +53,31 @@ else if (process.argv[2] === 'spotify-this-song') {
         });
     }
 
-else if (process.argv[2] === 'movie-this') {
+else if (process.argv[2] === 'movie-this') { 
+    var movieName ='';
+    if (process.argv[3] === 'undefined') {
+        movieName = 'Mr. Nobody';
+    }
+    else {
+        movieName = process.argv[3];
+    }
+    var queryUrl = "http://www.omdbapi.com/?t=" + movieName.replace(/ /g, "+") + "&y=&plot=short&r=json";
+    console.log('Query URL: '+ queryUrl);
 
+    request(queryUrl, function (error, response, body) {
+        if( !error && response.statusCode ===200) {
 
-    
+        console.log('Title: ' + JSON.parse(body).Title);
+        console.log('The movie was released in: ' + JSON.parse(body).Year);
+        console.log('The IMDB rating is: ' + JSON.parse(body).Ratings[0].Value);
+        console.log('The movie was produced in: ' + JSON.parse(body).Country);
+        console.log('The movie language is: ' + JSON.parse(body).Language);
+        console.log('The movie plot is: ' + JSON.parse(body).Plot);
+        console.log('Some actors in the movie are: ' + JSON.parse(body).Actors);
+        console.log('The movie language is: ' + JSON.parse(body).Language);
+        console.log('The Rotten Tomatoes score is: ' + JSON.parse(body).Ratings[1].Value);
+        }
+    })
 };
 
 
