@@ -46,8 +46,12 @@ else if (process.argv[2] === 'spotify-this-song') {
             console.log('Error occurred: ' + err);
             return;
             }
-            //console.log(JSON.stringify(data, null, 2));
-            console.log('Artist: '+ JSON.stringify(data.tracks.items[0].artists[0].name, null, 2));
+            console.log(JSON.stringify(data, null, 2));
+            for (var i = 0; i < data.tracks.items[0].artists.length; i++) {
+                console.log('Artist(s): '+ JSON.stringify(data.tracks.items[0].artists[i].name, null, 2));
+            }
+
+            //console.log('Artist(s): '+ JSON.stringify(data.tracks.items[0].artists[0].name, null, 2));
             console.log('Song: '+ JSON.stringify(data.tracks.items[0].name, null, 2));
             console.log('Preview Link: '+ JSON.stringify(data.tracks.items[0].album.external_urls.spotify, null, 2));
             console.log('Album: '+ JSON.stringify(data.tracks.items[0].album.name, null, 2));
