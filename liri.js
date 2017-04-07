@@ -2,26 +2,27 @@
 var twitter = require('twitter');
 var spotify = require('spotify');
 var request = require('request');
+var inquire = require('inquirer');
 var keys = require('./keys.js');
 var fs = require('fs');
-var action = '';
+var action = process.argv[2];
+var searchItem = process.argv[3]
 
- console.log(keys.twitterKeys);
  console.log(process.argv);
  console.log(process.argv[2]);
  console.log(process.argv[3]);
 
 
-        if (process.argv[2] === 'my-tweets') {
+        if (action === 'my-tweets') {
             tweetThis();
         }
-        else if (process.argv[2] === 'spotify-this-song') {
-            spotifyThis(process.argv[3]);
+        else if (action === 'spotify-this-song') {
+            spotifyThis(searchItem);
         }
-        else if (process.argv[2] === 'movie-this') {
-            movieThis(process.argv[3]);
+        else if (action === 'movie-this') {
+            movieThis(searchItem);
         }
-        else if (process.argv[2] === 'do-what-it-says'){
+        else if (action === 'do-what-it-says'){
              doWhatItSays();
         }
 //-------------------FUNCTIONS------------------------------------
