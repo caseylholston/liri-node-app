@@ -30,8 +30,8 @@ var questions = [
  inquirer.prompt(questions).then(function (answers){
     var action = answers.action;
     var searchItem = answers.searchItem; 
-    fs.appendFile('log.txt', 'Action: ' + action + '---\n');
-    fs.appendFile('log.txt', 'Search Item: ' + searchItem + '---\n')
+    fs.appendFile('log.txt', '---Action: ' + action + '---\n');
+    fs.appendFile('log.txt', '---Search Item: ' + searchItem + '---\n')
 
     switchThis(action,searchItem);
     console.log('Action: ' + action);
@@ -80,7 +80,7 @@ function tweetThis() {
             //console.log(JSON.stringify(tweets).text, null, 2);
                 for( var i =0; i <20; i++) {
                    console.log(JSON.stringify(tweets[i].text, null, 2));
-                   fs.appendFile('log.txt', JSON.stringify(tweets[i].text, null, 2)+ '\n');
+                   fs.appendFile('log.txt', JSON.stringify(tweets[i].text, null, 2)+ '\n\n');
                 
                 }
             }
@@ -91,7 +91,7 @@ function tweetThis() {
 }
 
 function spotifyThis(trackName) {
-    console.log('You typed spotify this song');
+    //console.log('You typed spotify this song');
         if (trackName === '') {
             song = '0hrBpAOgrt8RXigk83LLNE';
             spotify.lookup({ type: 'track', id: song, limit: 20 }, function(err, data) {
@@ -111,7 +111,7 @@ function spotifyThis(trackName) {
             console.log('Preview Link: '+ JSON.stringify(data.external_urls.spotify, null, 2));
             fs.appendFile('log.txt', 'Preview Link: '+ JSON.stringify(data.external_urls.spotify, null, 2) + '\n');
             console.log('Album: '+ JSON.stringify(data.album.name, null, 2));
-            fs.appendFile('log.txt', 'Album: '+ JSON.stringify(data.album.name, null, 2) + '\n');
+            fs.appendFile('log.txt', 'Album: '+ JSON.stringify(data.album.name, null, 2) + '\n\n');
         })
         
          }
@@ -120,24 +120,27 @@ function spotifyThis(trackName) {
             song = trackName; 
 
         console.log(song);
-        spotify.search({ type: 'track', query: song, limit: 20 }, function(err, data) {
+        spotify.search({ type: 'track', query: song, limit: 5 }, function(err, data) {
             if ( err ) {
             console.log('Error occurred: ' + err);
             return;
-            }
-            //console.log(JSON.stringify(data, null, 2));
-            for (var i = 0; i < data.tracks.items[0].artists.length; i++) {
-                console.log('Artist(s): '+ JSON.stringify(data.tracks.items[0].artists[i].name, null, 2));
-                fs.appendFile('log.txt', 'Artist(s): '+ JSON.stringify(data.tracks.items[0].artists[i].name, null, 2) + '\n');
-            }
+        }
+            console.log('-----TOP 10 SEARCH RESULTS-----');
+            fs.appendFile('log.txt','-----TOP 10 SEARCH RESULTS-----');
+            for (var i = 0; i < 9; i++) {
+                for (var i2 = 0; i2 < data.tracks.items[i].artists.length; i2++) {
+                    console.log('Artist(s): '+ JSON.stringify(data.tracks.items[i].artists[i2].name, null, 2));
+                    fs.appendFile('log.txt', 'Artist(s): '+ JSON.stringify(data.tracks.items[i].artists[i2].name, null, 2) + '\n');
+                }
 
-            //console.log('Artist(s): '+ JSON.stringify(data.tracks.items[0].artists[0].name, null, 2));
-            console.log('Song: '+ JSON.stringify(data.tracks.items[0].name, null, 2));
-            fs.appendFile('log.txt', 'Song: '+ JSON.stringify(data.tracks.items[0].name, null, 2) + '\n');
-            console.log('Preview Link: '+ JSON.stringify(data.tracks.items[0].album.external_urls.spotify, null, 2));
-            fs.appendFile('log.txt', 'Preview Link: '+ JSON.stringify(data.tracks.items[0].album.external_urls.spotify, null, 2) + '\n');
-            console.log('Album: '+ JSON.stringify(data.tracks.items[0].album.name, null, 2));
-            fs.appendFile('log.txt', 'Album: '+ JSON.stringify(data.tracks.items[0].album.name, null, 2) + '\n');            
+                //console.log('Artist(s): '+ JSON.stringify(data.tracks.items[0].artists[0].name, null, 2));
+                console.log('Song: '+ JSON.stringify(data.tracks.items[i].name, null, 2));
+                fs.appendFile('log.txt', 'Song: '+ JSON.stringify(data.tracks.items[i].name, null, 2) + '\n');
+                console.log('Preview Link: '+ JSON.stringify(data.tracks.items[i].album.external_urls.spotify, null, 2));
+                fs.appendFile('log.txt', 'Preview Link: '+ JSON.stringify(data.tracks.items[i].album.external_urls.spotify, null, 2) + '\n');
+                console.log('Album: '+ JSON.stringify(data.tracks.items[i].album.name, null, 2));
+                fs.appendFile('log.txt', 'Album: '+ JSON.stringify(data.tracks.items[i].album.name, null, 2) + '\n\n');            
+                }
             })
         }
 }
@@ -175,7 +178,7 @@ function movieThis(movie) {
             fs.appendFile('log.txt', 'The movie plot is: ' + JSON.parse(body).Plot + '\n');
             fs.appendFile('log.txt', 'Some actors in the movie are: ' + JSON.parse(body).Actors) + '\n';
             fs.appendFile('log.txt', 'The movie language is: ' + JSON.parse(body).Language + '\n');
-            fs.appendFile('log.txt', 'The Rotten Tomatoes score is: ' + JSON.parse(body).Ratings[1].Value + '\n');
+            fs.appendFile('log.txt', 'The Rotten Tomatoes score is: ' + JSON.parse(body).Ratings[1].Value + '\n\n');
 
             }
         else {
