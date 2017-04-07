@@ -22,7 +22,7 @@ var questions = [
     {
         type:'input',
         name:'searchItem',
-        message:'Please enter a search term or just press enter'
+        message:'Please enter a search term and press ENTER or just press ENTER'
     }
 ];
  
@@ -60,7 +60,7 @@ function switchThis (answersAction,answersSearchItem) {
  }
 
 function tweetThis() {
-            console.log('You typed my tweets');
+            // console.log('You typed my tweets');
     var client = new twitter({
     consumer_key: keys.twitterKeys.consumer_key,
     consumer_secret: keys.twitterKeys.consumer_secret,
@@ -88,7 +88,7 @@ function tweetThis() {
 
 function spotifyThis(trackName) {
     console.log('You typed spotify this song');
-        if (trackName === undefined) {
+        if (trackName === '') {
             song = '0hrBpAOgrt8RXigk83LLNE';
             spotify.lookup({ type: 'track', id: song, limit: 20 }, function(err, data) {
             if ( err ) {
@@ -132,7 +132,7 @@ function spotifyThis(trackName) {
 
 function movieThis(movie) {
     console.log(movie);
-    if (movie === undefined) {
+    if (movie === '') {
           movieName = 'Mr. Nobody';
     }
     else {
