@@ -2,38 +2,62 @@
 var twitter = require('twitter');
 var spotify = require('spotify');
 var request = require('request');
-var inquire = require('inquirer');
+var inquirer = require('inquirer');
 var keys = require('./keys.js');
 var fs = require('fs');
-var action = process.argv[2];
-var searchItem = process.argv[3]
+var action = '';
+var searchItem = '';
 
- console.log(process.argv);
- console.log(process.argv[2]);
- console.log(process.argv[3]);
+console.log('Hello my name is LIRI! \n\nHow can I assist you today?\n')
 
+// Switch Section to take in the inputs
+
+var questions = [
+    {
+        type:'list',
+        name:'action',
+        message:'Please select an action',
+        choices:['Check Some Sweet Tweets', 'Spotify a Song', 'Movie Search', 'Surprise Me']
+    },
+    {
+        type:'input',
+        name:'searchItem',
+        message:'Please enter a search term or just press enter'
+    }
+];
  
+ inquirer.prompt(questions).then(function (answers){
+    var action = answers.action;
+    var searchItem = answers.searchItem;  
+
+    switchThis(action,searchItem);
+    console.log('Action: ' + action);
+    console.log('Search Item: ' + searchItem);
+ })
  
- // Switch Section to take in the inputs
 
-switch(action) {
-    case "my-tweets":
-    tweetThis();
-    break;
 
-    case "spotify-this-song":
-    spotifyThis(searchItem);
-    break;
-
-    case "movie-this":
-    movieThis(searchItem);
-    break;
-
-    case "do-what-it-says":
-    doWhatItSays();
-    break;
-}
 //-------------------FUNCTIONS------------------------------------
+
+function switchThis (answersAction,answersSearchItem) {   
+        switch(answersAction) {
+        case 'Check Some Sweet Tweets':
+        tweetThis();
+        break;
+
+        case "Spotify a Song":
+        spotifyThis(answersSearchItem);
+        break;
+
+        case "Movie Search":
+        movieThis(answersSearchItem);
+        break;
+
+        case "Surprise Me":
+        doWhatItSays();
+        break;
+    }
+ }
 
 function tweetThis() {
             console.log('You typed my tweets');
