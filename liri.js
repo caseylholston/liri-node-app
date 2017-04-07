@@ -12,19 +12,27 @@ var searchItem = process.argv[3]
  console.log(process.argv[2]);
  console.log(process.argv[3]);
 
+ 
+ 
+ // Switch Section to take in the inputs
 
-        if (action === 'my-tweets') {
-            tweetThis();
-        }
-        else if (action === 'spotify-this-song') {
-            spotifyThis(searchItem);
-        }
-        else if (action === 'movie-this') {
-            movieThis(searchItem);
-        }
-        else if (action === 'do-what-it-says'){
-             doWhatItSays();
-        }
+switch(action) {
+    case "my-tweets":
+    tweetThis();
+    break;
+
+    case "spotify-this-song":
+    spotifyThis(searchItem);
+    break;
+
+    case "movie-this":
+    movieThis(searchItem);
+    break;
+
+    case "do-what-it-says":
+    doWhatItSays();
+    break;
+}
 //-------------------FUNCTIONS------------------------------------
 
 function tweetThis() {
