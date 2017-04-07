@@ -103,7 +103,7 @@ function spotifyThis(trackName) {
             return;
             }
             console.log('\n\nYou Did Not Choose a Song it Must be Some Kind of Sign\n');
-            fs.appendFile('You Did Not Choose a Song it Must be Some Kind of Sign\n\n', function(err){
+            fs.appendFile('log.txt', 'You Did Not Choose a Song it Must be Some Kind of Sign\n\n', function(err){
                     if (err) (console.log('Error: ' + err))});
             for (var i = 0; i < data.artists.length; i++) {
                 console.log('Artist(s): '+ JSON.stringify(data.artists[i].name, null, 2));
