@@ -8,7 +8,8 @@ var fs = require('fs');
 var action = '';
 var searchItem = '';
 
-console.log('Hello my name is LIRI! \n\nHow can I assist you today?\n')
+console.log('Hello my name is LIRI! \n\nHow can I assist you today?\n');
+
 
 // Switch Section to take in the inputs
 
@@ -28,7 +29,9 @@ var questions = [
  
  inquirer.prompt(questions).then(function (answers){
     var action = answers.action;
-    var searchItem = answers.searchItem;  
+    var searchItem = answers.searchItem; 
+    fs.appendFile('log.txt', 'Action: ' + action + '---\n');
+    fs.appendFile('log.txt', 'Search Item: ' + searchItem + '---\n')
 
     switchThis(action,searchItem);
     console.log('Action: ' + action);
@@ -77,6 +80,7 @@ function tweetThis() {
             //console.log(JSON.stringify(tweets).text, null, 2);
                 for( var i =0; i <20; i++) {
                    console.log(JSON.stringify(tweets[i].text, null, 2));
+                   fs.appendFile('log.txt', JSON.stringify(tweets[i].text, null, 2)+ '\n');
                 
                 }
             }
@@ -98,12 +102,16 @@ function spotifyThis(trackName) {
             //console.log(JSON.stringify(data, null, 2));
             for (var i = 0; i < data.artists.length; i++) {
                 console.log('Artist(s): '+ JSON.stringify(data.artists[i].name, null, 2));
+                fs.appendFile('log.txt', 'Artist(s): '+ JSON.stringify(data.artists[i].name, null, 2) + '\n');
             }
 
             //console.log('Artist(s): '+ JSON.stringify(data.tracks.items[0].artists[0].name, null, 2));
             console.log('Song: '+ JSON.stringify(data.name, null, 2));
+            fs.appendFile('log.txt', 'Song: '+ JSON.stringify(data.name, null, 2) + '\n');
             console.log('Preview Link: '+ JSON.stringify(data.external_urls.spotify, null, 2));
+            fs.appendFile('log.txt', 'Preview Link: '+ JSON.stringify(data.external_urls.spotify, null, 2) + '\n');
             console.log('Album: '+ JSON.stringify(data.album.name, null, 2));
+            fs.appendFile('log.txt', 'Album: '+ JSON.stringify(data.album.name, null, 2) + '\n');
         })
         
          }
@@ -120,12 +128,16 @@ function spotifyThis(trackName) {
             //console.log(JSON.stringify(data, null, 2));
             for (var i = 0; i < data.tracks.items[0].artists.length; i++) {
                 console.log('Artist(s): '+ JSON.stringify(data.tracks.items[0].artists[i].name, null, 2));
+                fs.appendFile('log.txt', 'Artist(s): '+ JSON.stringify(data.tracks.items[0].artists[i].name, null, 2) + '\n');
             }
 
             //console.log('Artist(s): '+ JSON.stringify(data.tracks.items[0].artists[0].name, null, 2));
             console.log('Song: '+ JSON.stringify(data.tracks.items[0].name, null, 2));
+            fs.appendFile('log.txt', 'Song: '+ JSON.stringify(data.tracks.items[0].name, null, 2) + '\n');
             console.log('Preview Link: '+ JSON.stringify(data.tracks.items[0].album.external_urls.spotify, null, 2));
+            fs.appendFile('log.txt', 'Preview Link: '+ JSON.stringify(data.tracks.items[0].album.external_urls.spotify, null, 2) + '\n');
             console.log('Album: '+ JSON.stringify(data.tracks.items[0].album.name, null, 2));
+            fs.appendFile('log.txt', 'Album: '+ JSON.stringify(data.tracks.items[0].album.name, null, 2) + '\n');            
             })
         }
 }
@@ -154,6 +166,17 @@ function movieThis(movie) {
             console.log('Some actors in the movie are: ' + JSON.parse(body).Actors);
             console.log('The movie language is: ' + JSON.parse(body).Language);
             console.log('The Rotten Tomatoes score is: ' + JSON.parse(body).Ratings[1].Value);
+
+            fs.appendFile('log.txt', 'Title: ' + JSON.parse(body).Title + '\n');
+            fs.appendFile('log.txt', 'The movie was released in: ' + JSON.parse(body).Year + '\n');
+            fs.appendFile('log.txt', 'The IMDB rating is: ' + JSON.parse(body).Ratings[0].Value + '\n');
+            fs.appendFile('log.txt', 'The movie was produced in: ' + JSON.parse(body).Country) + '\n';
+            fs.appendFile('log.txt', 'The movie language is: ' + JSON.parse(body).Language + '\n');
+            fs.appendFile('log.txt', 'The movie plot is: ' + JSON.parse(body).Plot + '\n');
+            fs.appendFile('log.txt', 'Some actors in the movie are: ' + JSON.parse(body).Actors) + '\n';
+            fs.appendFile('log.txt', 'The movie language is: ' + JSON.parse(body).Language + '\n');
+            fs.appendFile('log.txt', 'The Rotten Tomatoes score is: ' + JSON.parse(body).Ratings[1].Value + '\n');
+
             }
         else {
             console.log(error);
