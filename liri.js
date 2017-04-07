@@ -12,8 +12,22 @@ var action = '';
  console.log(process.argv[3]);
 
 
-if (process.argv[2] === 'my-tweets') {
-    console.log('You typed my tweets');
+        if (process.argv[2] === 'my-tweets') {
+            tweetThis();
+        }
+        else if (process.argv[2] === 'spotify-this-song') {
+            spotifyThis(process.argv[3]);
+        }
+        else if (process.argv[2] === 'movie-this') {
+            movieThis(process.argv[3]);
+        }
+        else if (process.argv[2] === 'do-what-it-says'){
+             doWhatItSays();
+        }
+//-------------------FUNCTIONS------------------------------------
+
+function tweetThis() {
+            console.log('You typed my tweets');
     var client = new twitter({
     consumer_key: keys.twitterKeys.consumer_key,
     consumer_secret: keys.twitterKeys.consumer_secret,
@@ -37,21 +51,7 @@ if (process.argv[2] === 'my-tweets') {
                 console.log(error);
                 }
         });
-    }
-        else if (process.argv[2] === 'spotify-this-song') {
-            spotifyThis(process.argv[3]);
-        }
-        else if (process.argv[2] === 'movie-this') {
-            movieThis(process.argv[3]);
-        }
-        else if (process.argv[2] === 'do-what-it-says'){
-             doWhatItSays();
-        }
-//-------------------FUNCTIONS------------------------------------
-
-
-
-
+}
 
 function spotifyThis(trackName) {
     console.log('You typed spotify this song');
@@ -133,7 +133,6 @@ function movieThis(movie) {
 
         data = data.split(",");
         spotifyThis(data[1]);
-
     })
 };
 
