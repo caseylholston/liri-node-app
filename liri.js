@@ -23,7 +23,7 @@ var questions = [
     {
         type:'input',
         name:'searchItem',
-        message:'Please enter a search term and press ENTER or just press ENTER'
+        message:'Please enter a title to search for and press ENTER or just press ENTER'
     }
 ];
  

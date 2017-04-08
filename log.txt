@@ -670,3 +670,109 @@ Song: "The Sign"
 Preview Link: "https://open.spotify.com/track/0hrBpAOgrt8RXigk83LLNE"
 Album: "The Sign (US Album) [Remastered]"
 
+---Action: Movie Search---
+---Search Item: Big---
+
+---Action: Movie Search---
+---Search Item: hook---
+
+Title: Hook
+The movie was released in: 1991
+The IMDB rating is: 6.7/10
+The movie was produced in: USA
+The movie language is: English
+The movie plot is: When Captain Hook kidnaps his children, an adult Peter Pan must return to Neverland and reclaim his youthful spirit in order to challenge his old enemy.
+Some actors in the movie are: Dustin Hoffman, Robin Williams, Julia Roberts, Bob Hoskins
+The movie language is: English
+The Rotten Tomatoes score is: 30%
+
+---Action: Movie Search---
+---Search Item: big---
+
+---Action: Movie Search---
+---Search Item: 'big'---
+
+Title: The Big Lebowski
+The movie was released in: 1998
+The IMDB rating is: 8.2/10
+The movie was produced in: USA, UK
+The movie language is: English, German, Hebrew, Spanish
+The movie plot is: "The Dude" Lebowski, mistaken for a millionaire Lebowski, seeks restitution for his ruined rug and enlists his bowling buddies to help get it.
+Some actors in the movie are: Jeff Bridges, John Goodman, Julianne Moore, Steve Buscemi
+The movie language is: English, German, Hebrew, Spanish
+The Rotten Tomatoes score is: 81%
+
+---Action: Spotify a Song---
+---Search Item: ---
+
+You Did Not Choose a Song it Must be Some Kind of Sign
+
+Artist(s): "Ace of Base"
+Song: "The Sign"
+Preview Link: "https://open.spotify.com/track/0hrBpAOgrt8RXigk83LLNE"
+Album: "The Sign (US Album) [Remastered]"
+
+---Action: Movie Search---
+---Search Item: Big---
+
+Title: Big
+The movie was released in: 1988
+The IMDB rating is: 7.3/10
+The movie was produced in: USA
+The movie language is: English
+The movie plot is: After wishing to be made big, a teenage boy wakes the next morning to find himself mysteriously in the body of an adult.
+Some actors in the movie are: Tom Hanks, Elizabeth Perkins, Robert Loggia, John Heard
+The movie language is: English
+The Rotten Tomatoes score is: 97%
+
+---Action: Surprise Me---
+---Search Item: ---
+
+-----TOP 10 SEARCH RESULTS-----
+Artist(s): "Backstreet Boys"
+Song: "I Want It That Way"
+Preview Link: "https://open.spotify.com/album/1NslKOZobWxINFaFkLol3r"
+Album: "The Hits--Chapter One"
+
+Artist(s): "Backstreet Boys"
+Song: "I Want It That Way"
+Preview Link: "https://open.spotify.com/album/5ySxm9hxBNss01WCL7GLyQ"
+Album: "Millennium"
+
+Artist(s): "Backstreet Boys"
+Song: "I Want It That Way"
+Preview Link: "https://open.spotify.com/album/71WupOKqXgSrgg0CivZDHS"
+Album: "90 Sweet 90s Hits!"
+
+Artist(s): "Backstreet Boys"
+Song: "I Want It That Way"
+Preview Link: "https://open.spotify.com/album/0A0F3AqFbEy1ZQgJwAXFzm"
+Album: "The Essential Backstreet Boys"
+
+Artist(s): "Glee Cast"
+Song: "Bye Bye Bye / I Want It That Way (Glee Cast Version)"
+Preview Link: "https://open.spotify.com/album/1sFs6ZD66GxP9g8kcwISh1"
+Album: "Bye Bye Bye / I Want It That Way (Glee Cast Version)"
+
+Artist(s): "Brittany Howard"
+Artist(s): "Jim James"
+Song: "I Want It That Way"
+Preview Link: "https://open.spotify.com/album/2TjFN2fzqwXvU0op1FPVml"
+Album: "I Want It That Way"
+
+Artist(s): "Anthem Lights"
+Song: "I Want It That Way"
+Preview Link: "https://open.spotify.com/album/6y6y4kyZ81PF951e9N4WBM"
+Album: "Covers Part IV"
+
+Artist(s): "Kyle Olthoff"
+Artist(s): "Destiny Jenkins"
+Song: "I Want It That Way"
+Preview Link: "https://open.spotify.com/album/01MwM46RP1hQqURHnWjxjl"
+Album: "I Want It That Way"
+
+Artist(s): "Dynamite Boy"
+Song: "I Want It That Way"
+Preview Link: "https://open.spotify.com/album/7LfKQOyYrhtCEqR4rr2J2M"
+Album: "Punk Goes Pop"
+
